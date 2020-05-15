@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap_form', '~> 4.5'
 
+# from https://tutorials.railsapps.org/books/learn-rails-2#cid66
+gem 'bootstrap-sass'
+gem 'gibbon'
+gem 'high_voltage'
+gem 'jquery-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -53,3 +59,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
