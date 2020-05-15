@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firstweb <%= " | "+yield(:title) unless yield(:title).blank? %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render partial: '/home/menu' %>
+    <!-- Begin Title code -->
+      <%# if @show_title  %>
+      <!--   <div id="title",class="row">
+          <div class="col">
+            <h1> <%# yield(:title) %></h1>
+          </div>
+        </div> -->
+      <%# end %>
+    <!-- End Title code -->
+    <h1 class="bg-dark text-white" ><%= notice %></h1>
+    <%= alert %>
+
+    <%= yield %>
+    <footer class="fixed-bottom bg-primary text-white text-center">
+      <%= Time.now.to_datetime %>
+    </footer>
+  </body>
+  <!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>

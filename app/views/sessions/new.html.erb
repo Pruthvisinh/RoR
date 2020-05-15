@@ -1,0 +1,14 @@
+<% title "Sign In" %>
+<center>
+<div class="w-50">
+	<%= bootstrap_form_with(url: sessions_path, method: :post, local: true) do |f| %>
+	
+		<%= f.email_field :email %>
+		<%= f.password_field :password %>
+		
+		<%= f.form_group do  %>
+			<%= f.primary "Sign In" %>
+		<% end %>
+	<% end %>
+</div>
+</center>

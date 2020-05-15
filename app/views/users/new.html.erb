@@ -1,0 +1,15 @@
+<% title "Sign Up" %>
+<center>
+<div class="w-50">
+	<%= bootstrap_form_with(model: @user, local: true) do |f| %>
+		<%= f.alert_message "Please fix the error below",error_summary: false %>
+		<%= f.text_field :name %>
+		<%= f.email_field :email %>
+		<%= f.password_field :password %>
+		<%= f.password_field :password_confirmation, label: "Confirm password" %>
+		<%= f.form_group do  %>
+			<%= f.primary "Sign Up" %>
+		<% end %>
+	<% end %>
+</div>
+</center>
