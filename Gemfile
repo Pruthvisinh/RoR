@@ -28,8 +28,9 @@ gem 'bootstrap-sass'
 gem 'gibbon'
 gem 'high_voltage'
 gem 'jquery-rails'
+gem 'rails_12factor', '~> 0.0.3'
 
-gem 'carrierwave', '~> 2.1'
+#gem 'carrierwave', '~> 2.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
