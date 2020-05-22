@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   	if @user && @user.authenticate(params[:password])
   		# session[:user_id] = @user.id
   		login(@user)
-  		redirect_to root_path, notice: "Signed In"
+  		redirect_to root_path, notice: "You are successfully Signed In!!!..."
   	else
   		redirect_to signin_path, alert: "Invalid Email/Password"
   	end  
@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
   def destroy
   	# session[:user_id]	=	nil
   	logout
-  	redirect_to root_path, notice: "Signed Out"
+  	redirect_to root_path, notice: "You are successfully Signed Out! Good Bye! "
   end
 end

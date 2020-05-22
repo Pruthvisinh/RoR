@@ -10,10 +10,66 @@
     <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= render partial: '/home/menu' %>
+    <%# render partial: '/home/menu' %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <%# link_to("FirstWebsite", root_path , class: 'navbar-brand') %>
+        <a class="navbar-brand"  href="/"><img src="/assets/logo1.png" width="30" height="30">&nbspFirstWebsite</a>
+        <%# image_tag("/assets/flg.gif",  alt: "like", class: "like_image_for_index") %>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto  mr-5">
+            <li class="nav-item active">
+              <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+              <%= nav_link "Home", root_path %>
+            </li>
+            <li class="nav-item">
+              <%= nav_link "About", about_path %>
+            </li>
+            <% unless current_user %>
+            <li class="nav-item">
+              <%= nav_link "Sign Up", signup_path  %>
+            </li>
+            <li class="nav-item">
+              <%= nav_link "Sign In", signin_path  %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= nav_link "Sign Out", signout_path  %>
+            </li>
+            <% end %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <br><br>
+      <section class="justify-content-center align-items-center">
+        <center><img src="/assets/flg.gif" style="margin-top:2px; align-items: center " alt="FirstWebsite" width="50" height="30" class="mt-2"></center>
+      </section>
+    </header>
+    
     <!-- Begin Title code -->
       <%# if @show_title  %>
       <!--   <div id="title",class="row">
@@ -23,9 +79,22 @@
         </div> -->
       <%# end %>
     <!-- End Title code -->
-    <h1 class="bg-dark text-white" ><%= notice %></h1>
-    <%= alert %>
+    <!-- Begin Flash Message -->
+      <div id="flash-message", class="row">
+        <% flash.each do |name,msg| %>
+          <div class="text-center alert alert-<%= name == 'notice'  ? 'success' : 'danger'%>  alert-dismissable col", role = "alert">
+            <%= msg %>
+            <button type="button", class="close" data-dismiss = "alert" aria-label = "Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    <!-- Begin Flash Message -->
 
+<!--     <h1 class="bg-dark text-white" ><%= notice %></h1>
+    <%= alert %>
+ -->
     <%= yield %>
     <footer class="fixed-bottom bg-primary text-white text-center">
       <%= Time.now.to_datetime %>

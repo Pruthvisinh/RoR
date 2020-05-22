@@ -78,8 +78,4 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: firstweb_production
-  username: firstweb
-  password: <%= ENV['FIRSTWEB_DATABASE_PASSWORD'] %>
+

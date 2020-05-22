@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :stds
+  get 'stds/index'
+  get 'stds/new'
+  get 'stds/create'
   # get 'home/index'
   #root 'home#index'
   root to: 'home#index'
